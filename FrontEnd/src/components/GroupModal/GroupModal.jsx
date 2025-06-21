@@ -9,7 +9,7 @@ function GroupModal() {
   const [searchResult, setSearchResult] = useState([]);
   const { user, chats, setChats } = ChatState();
 
-  const URL = "http://localhost:8080";
+  const URL = "https://chatapp-2411.onrender.com";
   let handleSearch = async (value) => {
     setSearch(value);
     if (!value) {
