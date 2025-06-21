@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.FRONTEDN_ORIGIN,
+    origin: "https://chatapp-frontend-nzh9.onrender.com",
     credentials: true,
   })
 );
@@ -76,7 +76,7 @@ const server = app.listen(8080, () => {
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: process.env.FRONTEDN_ORIGIN,
+    origin: "https://chatapp-frontend-nzh9.onrender.com",
   },
 });
 
