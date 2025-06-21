@@ -8,7 +8,7 @@ import GroupModal from "../GroupModal/GroupModal";
 function Chats() {
   const { user, setSelectedChat, chats, setChats } = ChatState();
   const [loggedUser, setloggedUser] = useState();
-  const URL = "http://localhost:8080";
+  const URL = "https://chatapp-2411.onrender.com";
 
   let fectchChats = async (e) => {
     await axios
