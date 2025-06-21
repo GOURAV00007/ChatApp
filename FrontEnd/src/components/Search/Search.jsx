@@ -6,7 +6,7 @@ function Search() {
   let [search, setSearch] = useState("");
   let [userData, setUserData] = useState([]);
   const { user, setSelectedChat, chats, setChats } = ChatState();
-  const URL = "http://localhost:8080";
+  const URL = "https://chatapp-2411.onrender.com";
   // let [userId, setUserId] = useState();
   let handleSubmit = async (event) => {
     event.preventDefault();
