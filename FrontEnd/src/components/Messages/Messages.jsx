@@ -5,7 +5,7 @@ import DisplayMessage from "../DisplayMessage/DisplayMessage.jsx";
 
 function Messages() {
   const { user, selectedChat, setSelectedChat } = ChatState();
-  const URL = "http://localhost:8080";
+  const URL = "https://chatapp-2411.onrender.com";
   return (
     <>
       {selectedChat ? (
