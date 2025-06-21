@@ -12,7 +12,7 @@ function Register() {
   let [picture, setPicture] = useState(null);
   let [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const URL = "http://localhost:8080";
+  const URL = "https://chatapp-2411.onrender.com";
   let namehandler = (event) => {
     // console.log(event.target.value);
     setName(event.target.value);
