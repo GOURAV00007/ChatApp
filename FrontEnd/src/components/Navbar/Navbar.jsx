@@ -8,7 +8,7 @@ import Details from "../Details/Details";
 function Navbar() {
   const { user, setUser } = ChatState({});
   const navigate = useNavigate();
-  const URL = "http://localhost:8080";
+  const URL = "https://chatapp-2411.onrender.com";
   let handleLogOut = async (e) => {
     await axios
       .get(`${URL}/logout`, { withCredentials: true })
