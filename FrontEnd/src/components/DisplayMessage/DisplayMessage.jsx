@@ -5,8 +5,8 @@ import axios from "axios";
 import { useEffect } from "react";
 import io from "socket.io-client";
 
-const ENDPOINT = "http://localhost:8080";
-const URL = "http://localhost:8080";
+const ENDPOINT = "https://chatapp-2411.onrender.com";
+const URL = "https://chatapp-2411.onrender.com";
 var socket, selectedchatcompare;
 
 function DisplayMessage() {
