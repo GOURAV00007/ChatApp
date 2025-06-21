@@ -1,0 +1,31 @@
+.login {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.formlogin {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 28rem;
+  /* height: 30rem; */
+  /* margin: auto; */
+  max-height: 35rem;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.inputLogin {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+}
+
+.button {
+  background-color: #f368e0;
+  border: none;
+  border-radius: 8px;
+}
+.button:hover {
+  background-color: #e056fd;
+}

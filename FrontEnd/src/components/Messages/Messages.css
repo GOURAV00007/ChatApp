@@ -1,0 +1,6 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 87vh;
+  /* width: 300px; */
+}
