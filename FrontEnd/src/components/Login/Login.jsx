@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function Login() {
   let [username, setUserName] = useState("");
   let [password, setPassword] = useState("");
-  const URL = "http://localhost:8080";
+  const URL = "https://chatapp-2411.onrender.com";
   const { user, setUser } = ChatState({});
   const navigate = useNavigate();
   let handleSubmit = (event) => {
