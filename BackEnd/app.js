@@ -39,13 +39,18 @@ const sessionOptions = {
   cookie: {
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
-    httpOnly: "none",
+    httpOnly: true,
     secure: true,
-    sameSite: "lax",
+    sameSite: "none",
   },
 };
 
 app.use(session(sessionOptions));
+
+app.use((req, res, next) => {
+  console.log("Session:", req.session);
+  next();
+});
 
 //for Passport login and register
 app.use(passport.initialize());
