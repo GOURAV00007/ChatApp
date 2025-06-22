@@ -8,20 +8,22 @@ import GroupModal from "../GroupModal/GroupModal";
 function Chats() {
   const { user, setSelectedChat, chats, setChats } = ChatState();
   const [loggedUser, setloggedUser] = useState();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const URL = "https://chatapp-2411.onrender.com";
 
   let fectchChats = async (e) => {
     setLoading(true);
+    console.log("INside Fecth");
     await axios
       .get(`${URL}/chats/fetechChats`, { withCredentials: true })
       .then((res) => {
-        console.log(res.data.data);
+        console.log("Inside Fecth data:",res.data.data);
         setChats(res.data.data);
       })
       .catch((err) => {
         console.log(err);
       });
+    console.log("After fetching");
       setLoading(false);
   };
   useEffect(() => {
