@@ -13,6 +13,9 @@ function Home() {
   // if (!user) {
   //   return <Navigate to="/login" />;
   // }
+  useEffect(()=>{
+    alert(user);
+  },[]);
   console.log("App rendering: user =", user, "loading =", loading);
   if (loading) return <div>Loading...</div>;
   return (
