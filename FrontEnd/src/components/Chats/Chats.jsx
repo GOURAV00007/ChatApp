@@ -8,9 +8,11 @@ import GroupModal from "../GroupModal/GroupModal";
 function Chats() {
   const { user, setSelectedChat, chats, setChats } = ChatState();
   const [loggedUser, setloggedUser] = useState();
+  const [loading, setLoading] = useState(true);
   const URL = "https://chatapp-2411.onrender.com";
 
   let fectchChats = async (e) => {
+    setLoading(true);
     await axios
       .get(`${URL}/chats/fetechChats`, { withCredentials: true })
       .then((res) => {
@@ -20,6 +22,7 @@ function Chats() {
       .catch((err) => {
         console.log(err);
       });
+      setLoading(false);
   };
   useEffect(() => {
     fectchChats();
@@ -32,6 +35,7 @@ function Chats() {
     e.preventDefault();
     setSelectedChat(chat);
   };
+  if (loading) return <div>Loading....</div>;
   return (
     <>
       <div className="border box">
