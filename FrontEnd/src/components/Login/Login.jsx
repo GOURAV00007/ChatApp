@@ -9,11 +9,13 @@ import { Link } from "react-router-dom";
 function Login() {
   let [username, setUserName] = useState("");
   let [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const URL = "https://chatapp-2411.onrender.com";
   const { user, setUser } = ChatState({});
   const navigate = useNavigate();
   let handleSubmit = (event) => {
     console.log("In Handle submit");
+    setLoading(true);
     event.preventDefault();
     axios
       .post(
@@ -26,6 +28,7 @@ function Login() {
       )
       .then((result) => {
         console.log("After post");
+        setLoading(false);
         if (result.data.success == true) {
           setUser(result.data.data);
           navigate("/home");
@@ -40,6 +43,7 @@ function Login() {
         }
       });
   };
+  if (loading) return <div>Loading....</div>;
   return (
     <>
       <div className="d-flex justify-content-center align-items-center vh-100 login">
