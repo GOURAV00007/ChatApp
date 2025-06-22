@@ -4,7 +4,7 @@ const User = require("../Models/User.js");
 const Chat = require("../Models/Chat.js");
 const { IsLoggedIn } = require("../middleware.js");
 
-router.get("/search", IsLoggedIn, async (req, res) => {
+router.get("/search",  async (req, res) => {
   const search = req.query.search;
   try {
     let data = await User.find({
@@ -18,7 +18,7 @@ router.get("/search", IsLoggedIn, async (req, res) => {
   }
 });
 
-router.get("/accessChat", IsLoggedIn, async (req, res) => {
+router.get("/accessChat",  async (req, res) => {
   let userId = req.query.userId;
   try {
     if (!userId) {
@@ -66,7 +66,7 @@ router.get("/accessChat", IsLoggedIn, async (req, res) => {
   }
 });
 
-router.get("/fetechChats", IsLoggedIn, async (req, res) => {
+router.get("/fetechChats",  async (req, res) => {
   console.log("🚨 SESSION:", req.session);
   console.log("✅ Authenticated?", req.isAuthenticated?.(), req.user);
   try {
@@ -87,7 +87,7 @@ router.get("/fetechChats", IsLoggedIn, async (req, res) => {
   }
 });
 
-router.post("/createGroupChat", IsLoggedIn, async (req, res) => {
+router.post("/createGroupChat",  async (req, res) => {
   if (!req.body.users || !req.body.name) {
     return res.json({ message: "Please Fill all the fields" });
   }
