@@ -27,6 +27,16 @@ function Chats() {
       setLoading(false);
   };
   useEffect(() => {
+    axios
+      .get("https://chatapp-2411.onrender.com/debug/session", {
+        withCredentials: true
+      })
+      .then((res) => {
+        console.log("✅ Debug Session Response:", res.data);
+      })
+      .catch((err) => {
+        console.error("❌ Session check failed", err);
+      });
     fectchChats();
     setloggedUser(user);
   }, []);
