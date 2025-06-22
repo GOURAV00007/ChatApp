@@ -16,7 +16,7 @@ function Search() {
       })
       .then((res) => {
         setUserData(res.data.data);
-        alert(res.data.success);
+        // alert(res.data.success);
       })
       .catch((err) => {
         console.log(err);
