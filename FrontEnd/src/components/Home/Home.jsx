@@ -14,7 +14,7 @@ function Home() {
   //   return <Navigate to="/login" />;
   // }
   useEffect(() => {
-  alert(JSON.stringify(user));
+  // alert(JSON.stringify(user));
     console.log("loggedinuser",user);
 }, [user]);
   console.log("App rendering: user =", user, "loading =", loading);
