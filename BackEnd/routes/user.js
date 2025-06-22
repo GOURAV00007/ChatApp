@@ -34,6 +34,7 @@ router.post("/register", upload.single("picture"), async (req, res) => {
 });
 
 router.post("/login", passport.authenticate("local"), async (req, res) => {
+  console.log("✅ Login successful:", req.user);
   console.log("inside login");
   res.json({ success: true, data: req.user });
 });
