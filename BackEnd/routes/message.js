@@ -5,7 +5,7 @@ const Chat = require("../Models/Chat.js");
 const Message = require("../Models/Message.js");
 const { IsLoggedIn } = require("../middleware.js");
 
-router.post("/sendmessages", IsLoggedIn, async (req, res) => {
+router.post("/sendmessages",  async (req, res) => {
   const { content, chatId } = req.body;
 
   if (!content || !chatId) {
@@ -38,7 +38,7 @@ router.post("/sendmessages", IsLoggedIn, async (req, res) => {
   }
 });
 
-router.get("/:chatId", IsLoggedIn, async (req, res) => {
+router.get("/:chatId",  async (req, res) => {
   try {
     const message = await Message.find({ chat: req.params.chatId })
       .populate("sender", "name pic email")
