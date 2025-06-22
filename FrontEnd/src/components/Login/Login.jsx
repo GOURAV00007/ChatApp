@@ -28,9 +28,10 @@ function Login() {
       )
       .then((result) => {
         console.log("After post");
-        setLoading(false);
+        
         if (result.data.success == true) {
           setUser(result.data.data);
+          setLoading(false);
           navigate("/home");
         }
       })
