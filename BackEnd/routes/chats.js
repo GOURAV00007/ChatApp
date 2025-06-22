@@ -67,6 +67,8 @@ router.get("/accessChat", IsLoggedIn, async (req, res) => {
 });
 
 router.get("/fetechChats", IsLoggedIn, async (req, res) => {
+  console.log("🚨 SESSION:", req.session);
+  console.log("✅ Authenticated?", req.isAuthenticated?.(), req.user);
   try {
     await Chat.find({ users: { $elemMatch: { $eq: req.user._id } } })
       .populate("users", "-password")
