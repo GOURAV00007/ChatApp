@@ -11,7 +11,7 @@ function Search() {
   let handleSubmit = async (event) => {
     event.preventDefault();
     await axios
-      .get(`${URL}/chats/search?search=${search}`, {
+      .get(`https://chatapp-2411.onrender.com/chats/search?search=${search}`, {
         withCredentials: true,
       })
       .then((res) => {
