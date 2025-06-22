@@ -64,8 +64,28 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+// Passport serializeUser and deserializeUser
+passport.serializeUser((user, done) => {
+  console.log("📦 Serializing user:", user._id);
+  done(null, user._id); // store user ID in session
+});
+
+passport.deserializeUser(async (id, done) => {
+  console.log("📥 Deserializing user with ID:", id);
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return done(null, false);
+    }
+    console.log("✅ Deserialized user:", user.username);
+    done(null, user);
+  } catch (err) {
+    console.error("❌ Error in deserializing user:", err);
+    done(err, null);
+  }
+});
 
 main()
   .then(() => {
