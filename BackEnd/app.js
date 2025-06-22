@@ -13,13 +13,16 @@ const User = require("./Models/User.js");
 const path = require("path");
 const app = express();
 
-app.use(express.json());
+
 app.use(
   cors({
     origin: "https://chatapp-frontend-nzh9.onrender.com",
     credentials: true,
   })
 );
+
+app.use(express.json());
+
 
 const store = MongoStore.create({
   mongoUrl: process.env.MONGO_URL,
@@ -28,9 +31,13 @@ const store = MongoStore.create({
   },
   touchAfter: 24 * 3600,
 });
+
+
 store.on("error", () => {
   console.log("Error in Mongo Session Store", err);
 });
+
+
 const sessionOptions = {
   store,
   secret: "mysupersecret",
@@ -74,6 +81,15 @@ async function main() {
 app.use("/", userRoute);
 app.use("/chats", chatRoute);
 app.use("/messages", messagesRoute);
+
+app.get("/debug/session", (req, res) => {
+  res.json({
+    cookie: req.headers.cookie,
+    session: req.session,
+    user: req.user,
+    isAuthenticated: req.isAuthenticated?.(),
+  });
+});
 
 const server = app.listen(8080, () => {
   console.log("App is Listening");
